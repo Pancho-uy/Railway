@@ -54,8 +54,7 @@ app.use('/api/carrito', cartRouter);
 app.use('/api/usuario', userRouter);
 app.use('/test', otherRouter);
 
-
-app.all("*", (req, res) => {
+app.all("*", (_req, res) => {
     res.status(404).json({"error": "ruta no existente"})
   });
 
@@ -83,3 +82,4 @@ app._router.stack.forEach(function (r) {
       })
 
 server.on('error', (err) => logger.error(err));
+
